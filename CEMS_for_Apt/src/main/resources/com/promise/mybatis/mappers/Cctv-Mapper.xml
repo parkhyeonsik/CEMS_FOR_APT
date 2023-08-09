@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Cctv-Mapper">
+	<select id="selectCctvByCctv_num" parameterType="str" resultType="cctv">
+		select * 
+		from cctv 
+		where cctv_num = #{cctv_num}
+	</select>	
+	
+	<select id="selectSearchCctvList"	resultType="cctv">
+		select
+		*
+		from
+		cctv
+		where cctv_num is not null
+	</select>
+	
+	<update id="insertCctv">
+		insert into 
+		cctv (cctv_num, cctv_img, cctv_state, cctv_date, cctv_time, cctv_location, cctv_site)
+		values (#{cctv_num}, #{cctv_img}, #{cctv_state}, #{cctv_date}, #{cctv_time}, #{cctv_location}, #{cctv_site})
+	</update>
+	
+	<update id="updateCctv" parameterType="cctv">
+		update 
+		cctv 
+		set 
+		cctv_state=#{cctv_state}, cctv_date=#{cctv_date}, cctv_time=#{cctv_time}, cctv_location=#{cctv_location}, cctv_site=#{cctv_site}  
+		where cctv_num=#{cctv_num}
+	</update>
+	
+	<update id="deleteCctv">
+		delete
+		from cctv
+		where cctv_num = #{cctv_num}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+

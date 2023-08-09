@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Err-Mapper">
+	<select id="selectErrByErr_num" resultType="err">
+		select * 
+		from err 
+		where err_num = #{err_num}
+	</select>	
+	
+	<select id="selectSearchErrList"	resultType="err">
+		select
+		*
+		from
+		err
+		where err_num is not null  			  	
+	</select>
+	
+	<update id="insertErr">
+		insert into 
+		err (err_num, err_diff, err_content, err_date, err_result, err_img)
+		values (#{err_num}, #{err_diff}, #{err_content}, #{err_date}, #{err_result}, #{err_img})
+	</update>
+	
+	<update id="updateErr" parameterType="err">
+		update 
+		err 
+		set 
+		err_diff=#{err_diff}, err_content=#{err_content}, err_date=#{err_date}, err_result=#{err_result}, err_img=#{err_img}  
+		where err_num=#{err_num}
+	</update>
+	
+	<update id="deleteErr">
+		delete
+		from err
+		where err_num = #{err_num}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+

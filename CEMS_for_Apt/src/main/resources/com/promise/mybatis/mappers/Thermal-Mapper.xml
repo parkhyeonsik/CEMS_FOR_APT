@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Thermal-Mapper">
+	<select id="selectThermalByThermal_num" resultType="thermal">
+		select * 
+		from thermal 
+		where thermal_num = #{thermal_num}
+	</select>	
+	
+	<select id="selectSearchThermalList"	resultType="thermal">
+		select
+		*
+		from
+		thermal
+		where thermal_num is not null  			  	
+	</select>
+	
+	<update id="insertThermal">
+		insert into 
+		thermal (thermal_num, thermal_temp, thermal_state, thermal_date, thermal_time, thermal_location, thermal_site)
+		values (#{thermal_num}, #{thermal_temp}, #{thermal_state}, #{thermal_date}, #{thermal_time}, #{thermal_location}, #{thermal_site})
+	</update>
+	
+	<update id="updateThermal" parameterType="thermal">
+		update 
+		thermal 
+		set 
+		thermal_state=#{thermal_state}, thermal_date=#{thermal_date}, thermal_time=#{thermal_time}, thermal_location=#{thermal_location}, thermal_site=#{thermal_site}  
+		where thermal_num=#{thermal_num}
+	</update>
+	
+	<update id="deleteThermal">
+		delete
+		from thermal
+		where thermal_num = #{thermal_num}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+

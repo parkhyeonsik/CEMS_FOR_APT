@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Err_type-Mapper">
+	<select id="selectErr_typeByErr_type_num" resultType="err_type">
+		select * 
+		from thermal 
+		where thermal_num = #{thermal_num}
+	</select>	
+	
+	<select id="selectSearchErr_typeList"	resultType="err_type">
+		select
+		*
+		from
+		"err_type"
+		where err_type_num is not null  			  	
+	</select>
+	
+	<update id="insertErr_type">
+		insert into 
+		err_type (err_type_num, err_type_history)
+		values (#{err_type_num}, #{err_type_history})
+	</update>
+	
+	<update id="updateErr_type" parameterType="err_type">
+		update 
+		err_type 
+		set 
+		err_type_history=#{err_type_history} 
+		where err_type_num=#{err_type_num}
+	</update>
+	
+	<update id="deleteErr_type">
+		delete
+		from err_type
+		where err_type_num = #{err_type_num}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
