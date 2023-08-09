@@ -21,7 +21,7 @@
 		from amenu
 		where aCode = #{acode}
 	</select>
-	<select id="selectAmenuByAname" resultType="menu">
+	<select id="selectAmenuByAname" resultType="amenu">
 		select *
 		from amenu
 		where aName = #{aname}
