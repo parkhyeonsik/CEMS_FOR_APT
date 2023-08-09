@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Apt-Mapper">
+
+    <select id="selectAptByApt_num" parameterType="str" resultType="apt">
+		select *
+		from apt
+		where apt_num=#{apt_num}
+	</select>	
+		
+	<update id="insertApt" parameterType="apt">
+		insert into 
+		apt(apt_num, apt_address, apt_name)
+		values(#{apt_num}, #{apt_address},#{apt_name})
+	</update>
+		
+	<update id="updateApt" parameterType="apt">
+		update apt
+		set 
+		apt_address=#{apt_address},apt_name=#{apt_name}		
+		where apt_num=#{apt_num}
+	</update>
+	
+	<update id="deleteApt" parameterType="str">
+		delete
+		from apt
+		where apt_num=#{apt_num}
+	</update>	
+</mapper>

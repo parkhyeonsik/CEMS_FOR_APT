@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="use-Mapper">
+
+
+	<sql id="use_search">
+		<if test="searchType == 'i'.toString() ">
+			and id evc_num like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'n'.toString() ">
+			and id use_id like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'u'.toString() ">
+			and id user_num like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+	
+	<select id="selectevc_useList" resultType="evc_use">
+		select *
+		from evc_use
+		where use_id=#{use_id}
+		<include refid="use_search" />
+		order by evc_num desc
+	
+		
+	</select>
+
+	<update id="insertuse">
+		insert into
+		evc_use(use_id,use_set,use_start,use_end,user_num,evc_num)
+		values(#{use_id},#{use_set},#{use_start},#{use_end},#{user_num},#{evc_num})
+	</update>
+	
+	
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Amenu-Mapper">
+	<select id="selectMainAmenu" resultType="amenu">
+		select *
+		from amenu
+		where ACODE like '%'||'0000'
+		order by ACODE asc;
+	</select>
+	
+	<select id="selectSubAmenu" resultType="amenu">
+		select *
+		from amenu
+		where aupCode = #{aupcode} and alevel=1
+	</select>
+	
+	<select id="selectAmenuByAcode" resultType="amenu">
+		select *
+		from amenu
+		where aCode = #{acode}
+	</select>
+	<select id="selectAmenuByAname" resultType="menu">
+		select *
+		from amenu
+		where aName = #{aname}
+	</select>
+</mapper>

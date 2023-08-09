@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Admin-Mapper">
+	<sql id="search">
+		<if test="searchType == 'nu'.toString() ">
+			and id like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'n'.toString() ">
+			and name like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'p'.toString() ">
+			and phone like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'e'.toString() ">
+			and email like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+	<select id="selectSearchAdminList" resultType="admin">
+		select
+		*
+		from admin
+		where apt_num is not null
+		<include refid="search" />
+		order by admin_regDate desc
+	</select>
+
+	<select id="selectSearchAdminListCount" resultType="int">
+		select count(*)
+		from admin
+		where amdin_id is not null
+		<include refid="search" />
+	</select>
+
+	<select id="selectAdminByAdmin_num" parameterType="str" resultType="admin">
+		select
+		*
+		from admin
+		where admin_num=#{admin_num}
+	</select>
+	
+	<update id="insertAdmin" parameterType="admin">
+		insert into 
+		admin(admin_num, admin_name, admin_phone, admin_id, admin_email, admin_pwd, apt_num, admin_regdate)
+		values(#{admin_num}, #{admin_name},#{admin_phone},#{admin_id},#{admin_email},#{admin_pwd},#{apt_num})
+	</update>
+	
+	<update id="updateAdmin" parameterType="admin">
+		update admin
+		set 
+		admin_name=#{admin_name},admin_phone=#{admin_phone},admin_id=#{admin_id},admin_email=#{admin_email},
+		admin_pwd=#{admin_pwd},apt_num=#{apt_num}		
+		where admin_num=#{admin_num}
+	</update>
+	
+	<update id="deleteAdmin" parameterType="str">
+		delete
+		from admin
+		where admin_num=#{admin_num}
+	</update>
+	
+</mapper>

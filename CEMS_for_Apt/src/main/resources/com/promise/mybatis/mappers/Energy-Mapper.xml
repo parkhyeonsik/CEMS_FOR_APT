@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Energy-Mapper">
+	<select id="selectEnergy" resultType="energy">
+		select *
+		from energy
+	</select>
+	<update id="insertEnergy" parameterType="energy">
+		insert 
+		into 
+		energy(en_num,en_supply,en_demand,en_supply_max,en_demand_max,en_date)
+		values
+		(#{en_num},#{en_supply},#{en_demand},#{en_supply_max},#{en_demand_max},to_date(#{en_date},'yy-MM-dd'))
+	</update>
+	<select id="selectDemandByEvc_num" resultType="demand">
+		select *
+		from demand
+		where evc_num = #{evc_num} and to_date(demand_time,'yy-MM-dd') = #{demand_time}
+	</select>
+	<update id="insertDemand" parameterType="demand">
+		insert 
+		into 
+		demand(demand_num,demand,evc_num)
+		values
+		(#{demand_num},#{demand},#{evc_num})
+	</update>
+	<select id="selectSupplyByApt_num" resultType="supply">
+		select *
+		from supply
+		where apt_num = #{apt_num} and to_date(supply_time,'yy-MM-dd') = #{supply_time}
+	</select>
+	<update id="insertSupply" parameterType="supply">
+		insert 
+		into 
+		supply(supply_num,supply,apt_num)
+		values
+		(#{supply_num},#{supply},#{apt_num})
+	</update>
+	
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Ev-Mapper">
+  <sql id="search">
+		<if test="searchType == 'u'.toString() ">
+			and id like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'o'.toString() ">
+			and name like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString() ">
+			and phone like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'm'.toString() ">
+			and email like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+	<select id="selectSearchEvList" resultType="ev">
+		select
+		*
+		from ev
+		where ev_id is not null
+		<include refid="search" />
+        order by ev_id desc;
+	</select>
+	<select id="selectSearchEvListCount" resultType="int">
+		select count(*)
+		from ev
+		where ev_id is not null
+		<include refid="search" />
+	</select>
+	<select id="selectEvByEv_id" resultType="str">
+		select *
+		from ev
+		where ev_id = #{ev_id}	
+	</select>
+	
+	<insert id="insertEv" parameterType="ev">
+		insert into 
+		ev(ev_id, ev_model, ev_num, ev_img, ev_owner)
+		values(#{ev_id},#{ev_model},#{ev_num},#{ev_img},#{ev_owner})
+	</insert>
+	
+	<update id="updateEv" parameterType="ev">
+		update ev
+		set
+		ev_model=#{ev_model}, ev_num=#{ev_num}, ev_img=#{ev_img}, ev_owner=#{ev_owner}
+	</update>
+	
+	<update id="deleteEv" parameterType="str">
+		delete 
+		from ev 
+		where ev_id=#{ev_id}
+	</update>
+</mapper>

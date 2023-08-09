@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="java.lang.String" alias="str" />
+		<typeAlias type="java.lang.Integer" alias="int" />
+		<!-- sun -->
+		<typeAlias type="com.promise.dto.EvchargerVO"
+			alias="evcharger" />
+		<typeAlias type="com.promise.dto.Evc_useVO" alias="use" />
+		<typeAlias type="com.promise.dto.Evc_stateVO" alias="state" />
+		<typeAlias type="com.promise.dto.Evc_infoVO" alias="info" />
+		<!-- won -->
+		<typeAlias type="com.promise.dto.CctvVO" alias="cctv" />
+		<typeAlias type="com.promise.dto.ThermalVO" alias="thermal" />
+		<typeAlias type="com.promise.dto.StorageVO" alias="storage" />
+		<typeAlias type="com.promise.dto.ErrVO" alias="err" />
+		<typeAlias type="com.promise.dto.Err_typeVO" alias="err_type" />
+		<!-- uha -->
+		<typeAlias type="com.promise.dto.DemandVO" alias="demand" />
+		<typeAlias type="com.promise.dto.SupplyVO" alias="supply"/>
+		<typeAlias type="com.promise.dto.EnergyVO" alias="energy"/>
+		<typeAlias type="com.promise.dto.UmenuVO" alias="umenu"/>
+		<typeAlias type="com.promise.dto.AmenuVO" alias="amenu"/>
+		
+	</typeAliases>
+
+</configuration>

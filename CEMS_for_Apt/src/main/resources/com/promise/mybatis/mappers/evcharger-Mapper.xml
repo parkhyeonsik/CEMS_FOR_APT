@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="evcharger-Mapper">
+	
+	<sql id="evcharger_search">
+		<if test="searchType == 'n'.toString() ">
+			and id evc_num like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'a'.toString() ">
+			and id evc_add like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'n'.toint() ">
+			and id evc_state like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+	
+	<select id="selectevchargerList" resultType="evcharger">
+		select *
+		from evcharger
+		where evc_num=#{evc_num}
+		<include refid="evcharger_search" />
+		order by evc_add asc
+	</select>
+	
+	<select id="selectevchargerByevc_num" resultType="evcharger">
+		select *
+		from evcharger
+		where evc_num = #{evc_num}
+	</select>
+	
+	<select id="selectevchargerByevc_add" resultType="evcharger">
+		select *
+		from evcharger
+		where evc_add = #{evc_add}
+	</select>
+	
+	
+</mapper>
