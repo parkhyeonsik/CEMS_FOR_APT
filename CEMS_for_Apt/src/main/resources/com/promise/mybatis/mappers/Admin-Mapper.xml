@@ -17,11 +17,11 @@
 			and email like '%'||#{keyword}||'%'
 		</if>
 	</sql>
-	<select id="selectSearchAdminList" resultType="admin">
+	<select id="selectSearchAdminListByApt_num" resultType="admin">
 		select
 		*
 		from admin
-		where apt_num is not null
+		where apt_num = #{apt_num}
 		<include refid="search" />
 		order by admin_regDate desc
 	</select>

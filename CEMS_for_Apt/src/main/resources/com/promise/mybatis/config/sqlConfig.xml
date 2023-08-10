@@ -18,14 +18,20 @@
 		<typeAlias type="com.promise.dto.ThermalVO" alias="thermal" />
 		<typeAlias type="com.promise.dto.StorageVO" alias="storage" />
 		<typeAlias type="com.promise.dto.ErrVO" alias="err" />
-		<typeAlias type="com.promise.dto.Err_typeVO" alias="err_type" />
+		<typeAlias type="com.promise.dto.Err_typeVO"
+			alias="err_type" />
 		<!-- uha -->
 		<typeAlias type="com.promise.dto.DemandVO" alias="demand" />
-		<typeAlias type="com.promise.dto.SupplyVO" alias="supply"/>
-		<typeAlias type="com.promise.dto.EnergyVO" alias="energy"/>
-		<typeAlias type="com.promise.dto.UmenuVO" alias="umenu"/>
-		<typeAlias type="com.promise.dto.AmenuVO" alias="amenu"/>
-		
+		<typeAlias type="com.promise.dto.SupplyVO" alias="supply" />
+		<typeAlias type="com.promise.dto.EnergyVO" alias="energy" />
+		<typeAlias type="com.promise.dto.UmenuVO" alias="umenu" />
+		<typeAlias type="com.promise.dto.AmenuVO" alias="amenu" />
+		<!-- sik -->
+		<typeAlias type="com.promise.dto.AdminVO" alias="admin" />
+		<typeAlias type="com.promise.dto.AptVO" alias="apt" />
+		<typeAlias type="com.promise.dto.UsersVO" alias="user" />
+		<typeAlias type="com.promise.dto.EvVO" alias="ev" />
+
 	</typeAliases>
 
 </configuration>

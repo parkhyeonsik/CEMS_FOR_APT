@@ -14,20 +14,20 @@
 		
 	</sql>
 	
-	<select id="selectevc_infoByevc_num" resultType="evc_info">
+	<select id="selectevc_infoByevc_num" resultType="info">
 		select * 
 		from evc_info
 		where evc_num = #{evc_num}
 		
 	</select>	
 	
-		<select id="selectevc_infoByevc_view_id" resultType="evc_info">
+		<select id="selectevc_infoByevc_view_id" resultType="info">
 		select * 
 		from evc_info
 		where evc_view_id = #{evc_view_id}
 	</select>	
 	
-		<select id="selectevc_infoList" resultType="evc_info">
+		<select id="selectevc_infoList" resultType="info">
 		select *
 		from evc_info
 		where evc_view_id=#{evc_view_id}
