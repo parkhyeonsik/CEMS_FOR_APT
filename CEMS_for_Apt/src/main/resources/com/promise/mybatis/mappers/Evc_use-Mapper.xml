@@ -17,7 +17,7 @@
 		</if>
 	</sql>
 	
-	<select id="selectevc_useList" resultType="evc_use">
+	<select id="selectevc_useList" resultType="use">
 		select *
 		from evc_use
 		where use_id=#{use_id}

@@ -8,8 +8,6 @@
 		<if test="searchType == 's'.toint() ">
 			and evc_state_num like '%'||#{keyword}||'%'
 		</if>
-	</sql>
-		<sql id="state">
 		<if test="searchType == 'n'.toString() ">
 			and evc_num like '%'||#{keyword}||'%'
 		</if>
@@ -31,7 +29,7 @@
 		where evc_num=#{evc_num}
 	</select>
 	
-	<update id="insertuse">
+	<update id="insertstate">
 		insert into
 		evc_state(evc_state_num,evc_state_text,evc_num)
 		values(#{evc_state_num},#{evc_state_text},#{evc_num)

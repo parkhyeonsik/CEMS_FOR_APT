@@ -12,7 +12,7 @@
 		</if>
 		
 	</sql>
-	<select id="selectSearchUsersList" resultType="users">
+	<select id="selectSearchUsersList" resultType="user">
 		select
 		*
 		from users
@@ -34,13 +34,13 @@
 		where user_num = #{user_num}	
 	</select>
 	
-	<update id="insertUsers" parameterType="users">
+	<update id="insertUsers" parameterType="user">
 		insert into 
 		users(user_num, user_id, user_picture, user_name, user_address, user_phone, user_pwd, user_email, ev_id)
 		values(#{user_num}, #{user_id},#{user_picture},#{user_name},#{user_address},#{user_phone},#{user_pwd},#{user_email},#{ev_id})
 	</update>
 	
-	<update id="updateUsers" parameterType="users">
+	<update id="updateUsers" parameterType="user">
 		update users 
 		set 
 		user_picture=#{user_picture},user_name=#{user_name},user_phone=#{user_phone},user_pwd=#{user_pwd},user_email=#{user_email}
