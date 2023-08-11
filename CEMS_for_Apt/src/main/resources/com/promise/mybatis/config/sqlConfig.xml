@@ -11,7 +11,7 @@
 		<!-- sun -->
 		<typeAlias type="com.promise.dto.EvchargerVO" alias="evcharger" />
 		<typeAlias type="com.promise.dto.Evc_useVO" alias="use" />
-		<typeAlias type="com.promise.dto.Evc_stateVO" alias="state" />
+		
 		<typeAlias type="com.promise.dto.Evc_infoVO" alias="info" />
 		<!-- won -->
 		<typeAlias type="com.promise.dto.CctvVO" alias="cctv" />

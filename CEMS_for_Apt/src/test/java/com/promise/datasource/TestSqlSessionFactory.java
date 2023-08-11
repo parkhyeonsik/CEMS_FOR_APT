@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.promise.dto.AdminVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:com/promise/context/dataSource-context.xml")
+@ContextConfiguration("classpath:com/promise/context/root-context.xml")
 @Transactional
 public class TestSqlSessionFactory {
 
